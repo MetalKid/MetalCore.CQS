@@ -9,10 +9,21 @@
     <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>MetalCore.pfx</AssemblyOriginatorKeyFile>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <PackageProjectUrl>https://github.com/MetalKid/MetalCore.CQS</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/MetalKid/MetalCore.CQS</RepositoryUrl>
+    <PackageTags>C#, CQS, Decorator, Mediator</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
