@@ -13,6 +13,8 @@
     <RepositoryUrl>https://github.com/MetalKid/MetalCore.CQS</RepositoryUrl>
     <PackageTags>C#, CQS, Decorator, Mediator</PackageTags>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

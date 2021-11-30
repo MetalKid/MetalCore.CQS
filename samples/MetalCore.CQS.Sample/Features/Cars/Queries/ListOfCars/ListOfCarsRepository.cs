@@ -12,7 +12,11 @@ namespace MetalCore.CQS.Sample.Features.Cars.Queries.ListOfCars
     /// The Repository that comes with this is above the data source implementation. It is used as a way
     /// to break up the code from the Handler. Since it is in the same folder as the rest of the data,
     /// it is very easy to find everything related to this Query. You can also unit test these a
-    /// lot easier.
+    /// lot easier.  You can send any type in (the request) and get any result out (response).
+    /// If there is no direct business logic, you can just send in the Query/Command/CommandQuery directly
+    /// here and process it - or create some sort of other request as a substitute.  Sometimes, you
+    /// need to call multiple repositories to get all the data, so this allows for that.  Plus,
+    /// you could re-use these repositories across other queries/commands/commandqueries.
     /// </summary>
     public class ListOfCarsRepository : IRepository<ListOfCarsQuery, ICollection<ListOfCarsDto>>
     {

@@ -9,7 +9,7 @@ namespace MetalCore.CQS.Sample.Features.Cars.Queries.ListOfCars
 {
     /// <summary>
     /// This is the class that handles the entire query.  You can do whatever you like in the ExecuteAsync
-    /// class.  You don't have to follow what is done here. Just know that this is where the main logic starts.
+    /// method.  You don't have to follow what is done here. Just know that this is where the main logic starts.
     /// 
     /// You can inject shared logic that can be re-used by other handlers.  You shouldn't have one handler
     /// inject another handler because that will cause you future grief and break SOLID.
