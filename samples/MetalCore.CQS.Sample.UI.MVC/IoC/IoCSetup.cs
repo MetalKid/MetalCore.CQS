@@ -11,12 +11,13 @@ using MetalCore.CQS.Sample.Core.Cache;
 using MetalCore.CQS.Sample.Core.UserContext;
 using MetalCore.CQS.Sample.Core.DataStore;
 using MetalCore.CQS.Sample.Core.Decorators;
-using MetalCore.CQS.Sample.UI.Console.UserContext;
+using MetalCore.CQS.Sample.UI.MVC.UserContext;
 using SimpleInjector;
 using SimpleInjector.Lifestyles;
 using System.Reflection;
+using MetalCore.CQS.Sample.UI.MVC.Mediators;
 
-namespace MetalCore.CQS.Sample.UI.Console.IoC
+namespace MetalCore.CQS.Sample.UI.MVC
 {
     public static class IoCSetup
     {
@@ -29,6 +30,7 @@ namespace MetalCore.CQS.Sample.UI.Console.IoC
 
             container.Register<ICarDataStore, CarDataStore>(Lifestyle.Singleton);
             container.RegisterSingleton<IDateTimeProvider, DateTimeProvider>();
+            container.RegisterSingleton<IResponseMediator, ResponseMediator>();            
             container.RegisterSingleton<ICqsMediator>(() => new CqsMediator(type => container.GetInstance(type)));
             container.RegisterSingleton<IRepositoryMediator>(() => new RepositoryMediator(type => container.GetInstance(type)));
             container.RegisterSingleton<IMapperMediator>(() => new MapperMediator(type => container.GetInstance(type)));
@@ -44,8 +46,6 @@ namespace MetalCore.CQS.Sample.UI.Console.IoC
             ReigsterCommands(container, assembliesToScan);
             ReigsterCommandQueries(container, assembliesToScan);
             RegisterRepositories(container, assembliesToScan);
-
-            container.Verify();
 
             return container;
         }

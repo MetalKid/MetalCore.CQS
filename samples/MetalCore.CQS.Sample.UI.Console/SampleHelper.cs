@@ -6,14 +6,14 @@ using MetalCore.CQS.Sample.Core.Features.Cars.Commands.AddNewRandomCar;
 using MetalCore.CQS.Sample.Core.Features.Cars.Commands.DeleteLastCar;
 using MetalCore.CQS.Sample.Core.Features.Cars.Queries.ListOfCars;
 using SimpleInjector;
-using SimpleInjector.Lifestyles;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace MetalCore.CQS.Sample
+namespace MetalCore.CQS.Sample.UI.Console
 {
+    using System;
+    using SimpleInjector.Lifestyles;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
     public static class SampleHelper
     {
         public static async Task QueryListOfCarsAsync(Container container)

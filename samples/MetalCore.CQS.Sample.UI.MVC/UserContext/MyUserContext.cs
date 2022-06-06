@@ -1,6 +1,6 @@
 ﻿using MetalCore.CQS.Sample.Core.UserContext;
 
-namespace MetalCore.CQS.Sample.UI.Console.UserContext
+namespace MetalCore.CQS.Sample.UI.MVC.UserContext
 {
     public class MyUserContext : IUserContext
     {

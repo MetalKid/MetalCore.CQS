@@ -1,10 +1,10 @@
-﻿using MetalCore.CQS.Sample.IoC;
-using SimpleInjector;
-using System;
-using System.Threading.Tasks;
-
-namespace MetalCore.CQS.Sample
+﻿namespace MetalCore.CQS.Sample.UI.Console
 {
+    using System;
+    using MetalCore.CQS.Sample.UI.Console.IoC;
+    using SimpleInjector;
+    using System.Threading.Tasks;
+
     public class Program
     {
         private static readonly Container _container;
