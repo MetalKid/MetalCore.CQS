@@ -31,7 +31,7 @@ that you can’t go forward without. By adding CommandQueries, all the situations 
 
 When implementing CQS, you will need to use interfaces to implement the style and get the plumbing hooked up. 
 These include IQuery, IQueryHandler, ICommand, and ICommandHandler. In this version, 
-Metal.CQS forces async/await through the chain and forces an IResult type back in order to avoid throwing exceptions 
+MetalCore.CQS forces async/await through the chain and forces an IResult type back in order to avoid throwing exceptions 
 everywhere. You will tend to see these interfaces defined something like this:
 
 ```csharp
