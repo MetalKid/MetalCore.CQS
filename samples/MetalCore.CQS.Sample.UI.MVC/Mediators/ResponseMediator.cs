@@ -46,7 +46,7 @@ namespace MetalCore.CQS.Sample.UI.MVC.Mediators
             return HandleResult(result, () => okCallback(default));
         }
 
-        public IActionResult HandleResult(MetalCore.CQS.Common.Results.IResult result, Func<IActionResult> okCallback)
+        private static IActionResult HandleResult(MetalCore.CQS.Common.Results.IResult result, Func<IActionResult> okCallback)
         {
             if (result.IsSuccessful)
             {

@@ -18,23 +18,23 @@ namespace MetalCore.CQS.Sample.UI.MVC.Controllers
             _responseMediator = responseMediator;
 
         [HttpGet(Name = "GetCars")]
-        public async Task<IActionResult> GetCars([FromQuery] ListOfCarsQuery query) =>
-            await _responseMediator.ExecuteAsync(query);
+        public async Task<IActionResult> GetCars([FromQuery] ListOfCarsQuery query, CancellationToken token = default) =>
+            await _responseMediator.ExecuteAsync(query, token);
 
         [HttpPost(Name = "AddCar")]
-        public async Task<IActionResult> AddCar([FromBody] AddCarCommand command) =>
-            await _responseMediator.ExecuteAsync(command);
+        public async Task<IActionResult> AddCar([FromBody] AddCarCommand command, CancellationToken token = default) =>
+            await _responseMediator.ExecuteAsync(command, token);
 
         [HttpPost(Name = "AddNewRandomCar")]
-        public async Task<IActionResult> AddNewRandomCar([FromBody] AddNewRandomCarCommand command) =>
-            await _responseMediator.ExecuteAsync(command);
+        public async Task<IActionResult> AddNewRandomCar([FromBody] AddNewRandomCarCommand command, CancellationToken token = default) =>
+            await _responseMediator.ExecuteAsync(command, token);
 
         [HttpPut(Name = "UpdateLastCarModel")]
-        public async Task<IActionResult> UpdateLastCarModel([FromBody] UpdateLastCarModelCommandQuery commandQuery) =>
-            await _responseMediator.ExecuteAsync(commandQuery);
+        public async Task<IActionResult> UpdateLastCarModel([FromBody] UpdateLastCarModelCommandQuery commandQuery, CancellationToken token = default) =>
+            await _responseMediator.ExecuteAsync(commandQuery, token);
 
         [HttpDelete(Name = "DeleteLastCar")]
-        public async Task<IActionResult> DeleteLastCar([FromBody] DeleteLastCarCommand command) =>
-            await _responseMediator.ExecuteAsync(command);
+        public async Task<IActionResult> DeleteLastCar([FromBody] DeleteLastCarCommand command, CancellationToken token = default) =>
+            await _responseMediator.ExecuteAsync(command, token);
     }
 }
