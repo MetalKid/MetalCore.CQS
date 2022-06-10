@@ -22,6 +22,12 @@ namespace MetalCore.CQS.Sample.Core.Features.Cars.Commands.AddCar
         {
             AddCarCommandValidator validator = new AddCarCommandValidator();
 
+            //NOTE: Example of using Fluent Validation with the built in Validator.
+            //      You don't have to use this class at all, you can always make your own.
+            //      However, this has multi-threading and IoC setup built in and will
+            //      also automatically run for all commands based on the inheritance.
+            //
+            // You could also just implement your checks directly here and not use any library.
             AddFluentRules<AddCarCommandValidator>(input, token);
 
             //NOTE: You can do async or sync here, up to you
