@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
-using MetalCore.CQS.Command;
 using MetalCore.CQS.Sample.Core.DataStore;
+using MetalCore.CQS.Sample.Core.Validation;
 using MetalCore.CQS.Validation;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MetalCore.CQS.Sample.Core.Features.Cars.Commands.AddCar
 {
-    public class AddCarCommandValidation : CommandValidatorBase<AddCarCommand>
+    public class AddCarCommandValidation : FluentCommandValidatorBase<AddCarCommand>
     {
         private readonly ICarDataStore _dataStore;
 
@@ -22,22 +22,7 @@ namespace MetalCore.CQS.Sample.Core.Features.Cars.Commands.AddCar
         {
             AddCarCommandValidator validator = new AddCarCommandValidator();
 
-            AddRules(async () =>
-            {
-                //NOTE: Example of using Fluent Validation with the built in Validator.
-                //      You don't have to use this class at all, you can always make your own.
-                //      However, this has multi-threading and IoC setup built in and will
-                //      also automatically run for all commands based on the inheritance.
-                //
-                // You could also just implement your checks directly here and not use any library.
-                FluentValidation.Results.ValidationResult result = await validator.ValidateAsync(input, token);
-                if (result.IsValid)
-                {
-                    return null;
-                }
-
-                return result.Errors.Select(a => new BrokenRule { RuleMessage = a.ErrorMessage, Relation = a.PropertyName });
-            });
+            AddFluentRules<AddCarCommandValidator>(input, token);
 
             //NOTE: You can do async or sync here, up to you
             AddRule(ThreadRuleRunTypeEnum.Single, async () =>

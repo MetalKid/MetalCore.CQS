@@ -33,7 +33,7 @@ namespace MetalCore.CQS.Sample.Core.Decorators
         protected override Task HandleBrokenRuleExceptionAsync(TCommandQuery CommandQuery, BrokenRuleException ex)
         {
             Console.WriteLine($"CommandQuery '{typeof(TCommandQuery).FullName}' threw a BrokenRuleException.  Rules broken:");
-            foreach (Validation.BrokenRule rule in ex.BrokenRules)
+            foreach (var rule in ex.BrokenRules)
             {
                 Console.WriteLine($"{rule.RuleMessage} {rule.Relation}");
             }
