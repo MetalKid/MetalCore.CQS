@@ -1,5 +1,4 @@
 ﻿using MetalCore.CQS.PubSub;
-using MetalCore.CQS.Sample.Core.DataStore;
 using System;
 using System.Threading;
 using System.Threading.Tasks;

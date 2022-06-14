@@ -44,7 +44,7 @@ namespace MetalCore.Tests.xUnitMoq.CQS.CommandQuery
                 var target = new Mock<CommandQueryValidatorBaseStub>();
 
                 // Act
-                var result = await target.Object.ValidateCommandQueryAsync(_commandQueryMock.Object, _token);
+                await target.Object.ValidateCommandQueryAsync(_commandQueryMock.Object, _token);
 
                 // Assert
                 Assert.Equal(_commandQueryMock.Object, target.Object.CommandQueryPublic);

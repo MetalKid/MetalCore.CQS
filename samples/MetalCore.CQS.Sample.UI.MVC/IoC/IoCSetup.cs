@@ -24,7 +24,7 @@ namespace MetalCore.CQS.Sample.UI.MVC
     {
         public static Container SetupIoC()
         {
-            Container container = new Container();
+            Container container = new();
             container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
 
             container.RegisterSingleton<IUserContext>(() => new MyUserContext { Language = "EN", UserName = "jane.doe" });

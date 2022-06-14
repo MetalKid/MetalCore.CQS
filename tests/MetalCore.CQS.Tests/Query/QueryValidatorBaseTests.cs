@@ -45,7 +45,7 @@ namespace MetalCore.Tests.xUnitMoq.CQS.Query
                 var target = new Mock<QueryValidatorBaseStub>();
 
                 // Act
-                var result = await target.Object.ValidateQueryAsync(_queryMock.Object, _token);
+                await target.Object.ValidateQueryAsync(_queryMock.Object, _token);
 
                 // Assert
                 Assert.Equal(_queryMock.Object, target.Object.QueryPublic);
