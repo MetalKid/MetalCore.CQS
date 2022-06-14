@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MetalCore.CQS.Sample.Core.Features.Cars.Commands.AddCar
 {
-    public class AddCarRepository : IRepository<AddCarCommand>
+    public class AddCarRepository : IRepository<AddCarCommand, CarEntity>
     {
         private readonly ICarDataStore _dataStore;
         private readonly IMapperMediator _mapperMediator;
@@ -17,11 +17,11 @@ namespace MetalCore.CQS.Sample.Core.Features.Cars.Commands.AddCar
             _mapperMediator = mapperMediator;
         }
 
-        public Task ExecuteAsync(AddCarCommand request, CancellationToken token = default)
+        public Task<CarEntity> ExecuteAsync(AddCarCommand request, CancellationToken token = default)
         {
             var entity = _mapperMediator.Map<CarEntity>(request);
             _dataStore.Cars.Add(entity);
-            return Task.CompletedTask;
+            return Task.FromResult(entity);
         }
     }
 }

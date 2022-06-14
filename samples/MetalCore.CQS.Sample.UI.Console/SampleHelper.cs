@@ -85,7 +85,7 @@ namespace MetalCore.CQS.Sample.UI.Console
                 Console.WriteLine("--- 4. Command Result --");
 
                 //NOTE: In ASP.NET MVC, you would inject ICqsMediator and then make this call directly
-                IResult result = await service.ExecuteAsync(new AddCarCommand { Make = "Chevy", Model = "Malibu", Year = 2020 });
+                IResult result = await service.ExecuteAsync(new AddCarCommand { Make = "Chevy", Model = "Malibu", Year = 2022 });
 
                 ShowResultData(result);
 

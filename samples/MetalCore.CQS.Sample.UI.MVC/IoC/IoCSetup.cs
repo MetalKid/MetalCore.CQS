@@ -16,6 +16,7 @@ using SimpleInjector;
 using SimpleInjector.Lifestyles;
 using System.Reflection;
 using MetalCore.CQS.Sample.UI.MVC.Mediators;
+using MetalCore.CQS.PubSub;
 
 namespace MetalCore.CQS.Sample.UI.MVC
 {
@@ -35,6 +36,8 @@ namespace MetalCore.CQS.Sample.UI.MVC
             container.RegisterSingleton<IRepositoryMediator>(() => new RepositoryMediator(type => container.GetInstance(type)));
             container.RegisterSingleton<IMapperMediator>(() => new MapperMediator(type => container.GetInstance(type)));
 
+            container.RegisterSingleton<IPublisher>(() => new Publisher(type => container.GetAllInstances(type).Cast<dynamic>().ToList()));
+
             container.Register<IQueryCacheRegion, MyQueryCacheRegion>(Lifestyle.Scoped);
             container.RegisterSingleton(typeof(ICacheManager<object>),
                 () => CacheFactory.Build<object>(config => config.WithMicrosoftMemoryCacheHandle(true)));
@@ -46,6 +49,8 @@ namespace MetalCore.CQS.Sample.UI.MVC
             ReigsterCommands(container, assembliesToScan);
             ReigsterCommandQueries(container, assembliesToScan);
             RegisterRepositories(container, assembliesToScan);
+
+            container.Collection.Register(typeof(ISubscriber<>), assembliesToScan);
 
             return container;
         }
